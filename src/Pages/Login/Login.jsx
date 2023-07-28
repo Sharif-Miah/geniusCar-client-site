@@ -3,7 +3,29 @@ import { FcGoogle } from "react-icons/fc";
 import { TfiLinkedin } from "react-icons/tfi";
 import registerImg from "../../assets/images/login/login.svg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Login = () => {
+
+const {signIn} = useContext(AuthContext)
+
+  const handleInLogin = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email,password);
+
+    signIn(email, password)
+    .then(result => {
+      const user = result.user
+      console.log(user);
+    })
+    .catch(error => console.error(error))
+
+  }
+
+
     return (
         <div className="my-24">
       <div className="card lg:card-side bg-base-100">
@@ -12,12 +34,13 @@ const Login = () => {
         </figure>
         <div className="card-body w-1/2 mx-auto">
           <h2 className="text-3xl font-bold ml-9 lg:ml-16 mb-7">Login</h2>
-          <form className="">
+          <form onSubmit={handleInLogin}>
             <div>
               <div className="">
                 <label className="font-semibold ml-3">Email</label> <br />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   className="input input-bordered input-md w-full max-w-xs mt-3"
                   required
@@ -28,6 +51,7 @@ const Login = () => {
                 <br />
                 <input
                   type="password"
+                  name="password"
                   placeholder="Type password"
                   className="input input-bordered input-md w-full max-w-xs mt-3"
                   required

@@ -3,8 +3,31 @@ import { FcGoogle } from "react-icons/fc";
 import { TfiLinkedin } from "react-icons/tfi";
 import registerImg from "../../assets/images/login/login.svg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
+
+  const {createUser} = useContext(AuthContext)
+
+const handleRegister = (event) => {
+  event.preventDefault();
+  const form = event.target;
+  const name = form.name.value;
+  const email = form.email.value;
+  const password = form.password.value;
+  console.log(name,email,password);
+
+  createUser(email,password)
+  .then(result => {
+    const user = result.user
+    console.log(user);
+  })
+  .catch(error => console.error(error))
+
+}
+
+
   return (
     <div className="my-24">
       <div className="card lg:card-side bg-base-100">
@@ -13,12 +36,13 @@ const Register = () => {
         </figure>
         <div className="card-body w-1/2 mx-auto">
           <h2 className="text-3xl font-bold ml-9 lg:ml-16 mb-7">Register</h2>
-          <form className="">
+          <form onSubmit={handleRegister}>
             <div>
               <div className="">
                 <label className="font-semibold ml-3">Name</label> <br />
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   className="input input-bordered input-md w-full max-w-xs mt-3"
                   required
@@ -28,6 +52,7 @@ const Register = () => {
                 <label className="font-semibold ml-3">Email</label> <br />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   className="input input-bordered input-md w-full max-w-xs mt-3"
                   required
@@ -38,6 +63,7 @@ const Register = () => {
                 <br />
                 <input
                   type="password"
+                  name="password"
                   placeholder="Type password"
                   className="input input-bordered input-md w-full max-w-xs mt-3"
                   required
