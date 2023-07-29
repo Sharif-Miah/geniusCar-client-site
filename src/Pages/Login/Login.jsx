@@ -6,9 +6,14 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import { GoogleAuthProvider } from "firebase/auth";
+
+
+const provider = new GoogleAuthProvider()
+
 const Login = () => {
 
-const {signIn} = useContext(AuthContext)
+const {signIn, googleProvider} = useContext(AuthContext)
 
 const toastify = () => toast.success("Successfully Login")
 
@@ -23,7 +28,6 @@ const toastify = () => toast.success("Successfully Login")
     .then(result => {
       const user = result.user;
       form.reset()
-      toastify()
       console.log(user);
 
     })
@@ -31,6 +35,17 @@ const toastify = () => toast.success("Successfully Login")
 
   }
 
+  // Google Login 
+
+  const handleWithGoogle = () => {
+    googleProvider(provider)
+    .then(result => {
+      const user = result.user
+      console.log(user);
+      console.log("Successfully Register");
+    })
+    .catch(error => console.error(error))
+  }
 
     return (
         <div className="my-24">
@@ -72,7 +87,7 @@ const toastify = () => toast.success("Successfully Login")
             <p className=" text-sm mt-3">OR login with you</p>
           </div>
           <div className="lg:flex ml-16 lg:ml-24  mt-5">
-            <FcGoogle className="text-2xl text-sky-900 cursor-pointer" />
+            <FcGoogle onClick={handleWithGoogle} className="text-2xl text-sky-900 cursor-pointer" />
             <FaFacebookF className="text-2xl my-3 lg:my-0 lg:mx-9 text-sky-900 cursor-pointer" />
             <TfiLinkedin className="text-2xl text-indigo-700 cursor-pointer" />
           </div>

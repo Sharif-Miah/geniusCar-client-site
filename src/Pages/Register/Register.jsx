@@ -8,11 +8,11 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider, signOut } from "firebase/auth";
 
-
+const provider = new GoogleAuthProvider()
 
 const Register = () => {
 
-  const provider = new GoogleAuthProvider()
+  
 
   const {createUser, googleProvider} = useContext(AuthContext)
   const toistify = () => toast.success("Successfully Register")

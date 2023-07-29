@@ -16,7 +16,7 @@ const Slider = () => {
     <div className="carousel mt-5">
       <div id="slide1" className="carousel-item relative w-full ">
         <div className="img-gradient">
-          <img src={img1} className="w-full" alt="" />
+          <img src={img1} className="w-full rounded-2xl" alt="" />
         </div>
         <div>
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 top-1/4 ">
