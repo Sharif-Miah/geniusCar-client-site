@@ -5,10 +5,17 @@ import registerImg from "../../assets/images/login/login.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
+import { GoogleAuthProvider, signOut } from "firebase/auth";
+
+
 
 const Register = () => {
 
-  const {createUser} = useContext(AuthContext)
+  const provider = new GoogleAuthProvider()
+
+  const {createUser, googleProvider} = useContext(AuthContext)
+  const toistify = () => toast.success("Successfully Register")
 
 const handleRegister = (event) => {
   event.preventDefault();
@@ -20,12 +27,28 @@ const handleRegister = (event) => {
 
   createUser(email,password)
   .then(result => {
-    const user = result.user
+    const user = result.user;
+    form.reset()
+    toistify()
     console.log(user);
+
   })
   .catch(error => console.error(error))
-
 }
+
+// Google signin 
+
+const handleWithGoogle = () => {
+  googleProvider(provider)
+  .then(result => {
+    const user = result.user
+    console.log(user);
+    console.log("Successfully Register");
+  })
+  .catch(error => console.error(error))
+}
+
+
 
 
   return (
@@ -78,7 +101,7 @@ const handleRegister = (event) => {
             <p className=" text-sm mt-3">OR login with you</p>
           </div>
           <div className=" lg:flex  ml-16 lg:ml-24  mt-5">
-            <FcGoogle className="text-2xl text-sky-900 cursor-pointer" />
+            <FcGoogle onClick={handleWithGoogle} className="text-2xl text-sky-900 cursor-pointer" />
             <FaFacebookF className="text-2xl my-3 lg:my-0 lg:mx-9 text-sky-900 cursor-pointer" />
             <TfiLinkedin className="text-2xl text-indigo-700 cursor-pointer" />
           </div>

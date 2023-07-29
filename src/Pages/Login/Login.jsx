@@ -5,9 +5,12 @@ import registerImg from "../../assets/images/login/login.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 const Login = () => {
 
 const {signIn} = useContext(AuthContext)
+
+const toastify = () => toast.success("Successfully Login")
 
   const handleInLogin = event => {
     event.preventDefault();
@@ -18,8 +21,11 @@ const {signIn} = useContext(AuthContext)
 
     signIn(email, password)
     .then(result => {
-      const user = result.user
+      const user = result.user;
+      form.reset()
+      toastify()
       console.log(user);
+
     })
     .catch(error => console.error(error))
 
