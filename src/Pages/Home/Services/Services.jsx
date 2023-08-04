@@ -12,8 +12,8 @@ const Services = () => {
 
   return (
     <div>
-      <h4 className="text-center text-red-500 text-md font-bold">Services</h4>
-      <h1 className="text-center text-5xl font-bold mb-5">Our Service Area</h1>
+      <h4 className="text-center text-red-500 text-md mt-10 font-bold">Services</h4>
+      <h1 className="text-center text-2xl lg:text-5xl font-bold mb-5">Our Service Area</h1>
       <p className=" text-zinc-500 text-center">
         the majority have suffered alteration in some form, by injected humour,
         or randomised

@@ -21,8 +21,8 @@ const Slider = () => {
         <div>
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 top-1/4 ">
             <h1 className=" text-lg lg:text-6xl text-white font-bold">
-              Affordabe <br />
-              Price For Car <br />
+              Affordabe 
+              Price For Car 
               Servicing
             </h1>
           </div>
@@ -33,11 +33,11 @@ const Slider = () => {
             </p>
           </div>
 
-          <div className="absolute flex justify-end  transform -translate-y-1/2 left-5 top-2/3 ">
-            <button className="btn   bg-red-700 border border-red-700 hover:bg-red-700 hover:border-red-700 text-white mr-3">
+          <div className="absolute flex flex-col gap-2 lg:flex-row justify-end  transform -translate-y-1/2 left-5 top-2/3 ">
+            <button className="btn btn-xs px-2 py-1 lg:px-3 lg:py-3 bg-red-700 border border-red-700 hover:bg-red-700 hover:border-red-700 text-white mr-3">
               Discover More
             </button>
-            <button className="btn btn-outline border-white text-white hover:bg-red-700 hover:border-red-700">
+            <button className="btn btn-xs px-2 py-1 btn-outline border-white text-white hover:bg-red-700 hover:border-red-700">
               Latest Project
             </button>
           </div>

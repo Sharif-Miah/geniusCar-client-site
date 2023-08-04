@@ -1,13 +1,13 @@
 import React from "react";
 import logo from "../../../../assets/logo.svg";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import { MdContactPage } from "react-icons/md";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 import "./ServiceDetails.css";
 
 const ServiceDetails = () => {
-  const { title, img, price } = useLoaderData();
+  const { _id, title, img, price } = useLoaderData();
   return (
     <div>
       <div className="my-10">
@@ -74,7 +74,7 @@ const ServiceDetails = () => {
           </div>
         </div>
 
-        <h1 className="text-4xl my-10 font-bold">Unique Car Engine Service</h1>
+        <h1 className=" text-center lg:text-left text-4xl my-10 font-bold">Unique Car Engine Service</h1>
         <div className="card lg:card-side">
           <div className="w-full lg:w-3/4 sm:mx-auto">
             <p className="text-zinc-500 tracking-wider mx-6 leading-8 ">
@@ -92,7 +92,7 @@ const ServiceDetails = () => {
               slightly believable. If you
             </p>
           </div>
-          <div className="card-body w-full  lg:w-1/4 bg-black text-white rounded-lg">
+          <div className="card-body mt-10 lg:mt-0 w-full  lg:w-1/4 bg-black text-white rounded-lg">
             <h2 className="text-2xl font-bold">Download</h2>
 
             <div className="flex justify-between">
@@ -124,8 +124,8 @@ const ServiceDetails = () => {
         </div>
 
         <div className="mt-10 ">
-          <div className="card lg:card-side bg-base-100 ">
-            <div className="w-full lg:w-3/4 flex sm:mx-auto lg:flex-collumn">
+          <div className="card lg:card-side bg-base-100">
+            <div className="w-full lg:w-3/4 flex mx-auto lg:flex-collumn">
               <div className="">
                 <div className="grid grid-cols-1 lg:grid-cols-2 my-10">
                   <div className="card w-96 border-t-2 border-red-500 bg-base-100 my-10 mr-28">
@@ -183,7 +183,7 @@ const ServiceDetails = () => {
                 </div>
 
                 <div>
-                  <h1 className="text-4xl my-10 font-bold">
+                  <h1 className="text-4xl text-center lg:text-left my-10 font-bold">
                     3 Simple Steps to Process
                   </h1>
                   <p className="text-zinc-500 tracking-wider mx-6 leading-8">
@@ -275,7 +275,9 @@ const ServiceDetails = () => {
               <button className="btn bg-red-500 text-white border border-red-500 hover:border-red-500 hover:bg-red-500">Get A Quote</button>
               </div>
               <h1 className="font-bold mt-5 text-3xl">Price: ${price}</h1>
+              <Link to={`/chackout/${_id}`}>
               <button className="btn bg-red-500 text-white border border-red-500 hover:border-red-500 hover:bg-red-500 mt-3">Proceed Checkout</button>
+              </Link>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ const CoreFetures = () => {
       <div className="my-12">
           <div className="mb-12">
             <h4 className="text-center text-red-500 text-md font-bold">Core Features</h4>
-            <h1 className="text-center text-5xl font-bold mb-5">
+            <h1 className="text-center text-3xl lg:text-5xl font-bold mb-5">
               Why chose us
             </h1>
             <p className=" text-zinc-500 text-center">

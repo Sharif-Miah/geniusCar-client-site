@@ -12,7 +12,7 @@ const Testimonial = () => {
           <h4 className="text-center text-red-500 text-md font-bold">
             Testimonial
           </h4>
-          <h1 className="text-center text-5xl font-bold mb-5">
+          <h1 className="text-center text-2xl lg:text-5xl font-bold mb-5">
             What Customer Says
           </h1>
           <p className=" text-zinc-500 text-center">

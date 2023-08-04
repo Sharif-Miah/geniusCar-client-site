@@ -8,6 +8,7 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Service from "../../Pages/Service/Service";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails/ServiceDetails";
+import CheckOut from "../../Pages/Home/Services/CheckOut/CheckOut";
 
 
 
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
                 path: '/servicedetails/:id',
                 element: <ServiceDetails/>,
                 loader: ({params}) => fetch(`http://localhost:5000/servicedetails/${params.id}`)
+            },
+            {
+                path: '/chackout/:id',
+                element: <CheckOut/>,
+                loader: ({params}) => fetch(`http://localhost:5000/chackout/${params.id}`)
             },
             {
                 path: '/blog',
