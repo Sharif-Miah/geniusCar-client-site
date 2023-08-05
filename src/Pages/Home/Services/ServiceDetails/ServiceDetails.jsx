@@ -275,9 +275,11 @@ const ServiceDetails = () => {
               <button className="btn bg-red-500 text-white border border-red-500 hover:border-red-500 hover:bg-red-500">Get A Quote</button>
               </div>
               <h1 className="font-bold mt-5 text-3xl">Price: ${price}</h1>
+              <div>
               <Link to={`/chackout/${_id}`}>
-              <button className="btn bg-red-500 text-white border border-red-500 hover:border-red-500 hover:bg-red-500 mt-3">Proceed Checkout</button>
+              <button className="btn bg-red-500 w-full text-white border border-red-500 hover:border-red-500 hover:bg-red-500 mt-3">Proceed Checkout</button>
               </Link>
+              </div>
             </div>
           </div>
         </div>
