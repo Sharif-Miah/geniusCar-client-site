@@ -30,7 +30,10 @@ const Navbar = () => {
         Contact
       </Link>
       {user ? (
-        <div><Link onClick={handleLogOut} className="px-3">Log Out</Link></div>
+        <div>
+          <Link to='/booking' className="px-3">Booking</Link>
+          <Link onClick={handleLogOut} className="px-3">Log Out</Link>
+        </div>
       ) : (
         <div>
           <Link to="/login" className="px-3">

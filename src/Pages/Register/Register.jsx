@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { TfiLinkedin } from "react-icons/tfi";
@@ -11,11 +12,13 @@ import { GoogleAuthProvider, signOut } from "firebase/auth";
 const provider = new GoogleAuthProvider()
 
 const Register = () => {
-
-  
-
   const {createUser, googleProvider} = useContext(AuthContext)
-  const toistify = () => toast.success("Successfully Register")
+
+  const switAlart = Swal.fire(
+    'Good job!',
+    'You Successful Register!',
+    'success'
+  )
 
 const handleRegister = (event) => {
   event.preventDefault();
@@ -28,9 +31,11 @@ const handleRegister = (event) => {
   createUser(email,password)
   .then(result => {
     const user = result.user;
-    form.reset()
-    toistify()
-    console.log(user);
+    
+    if(user) {
+      switAlart()
+      form.reset()
+    }
 
   })
   .catch(error => console.error(error))
@@ -47,9 +52,6 @@ const handleWithGoogle = () => {
   })
   .catch(error => console.error(error))
 }
-
-
-
 
   return (
     <div className="my-24">

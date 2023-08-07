@@ -9,6 +9,8 @@ import Register from "../../Pages/Register/Register";
 import Service from "../../Pages/Service/Service";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails/ServiceDetails";
 import CheckOut from "../../Pages/Home/Services/CheckOut/CheckOut";
+import Booking from "../../Pages/Home/Booking/Booking";
+import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 
 
 
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
                 path: '/chackout/:id',
                 element: <CheckOut/>,
                 loader: ({params}) => fetch(`http://localhost:5000/chackout/${params.id}`)
+            },
+            {
+                path: '/booking',
+                element: <Booking/>,
             },
             {
                 path: '/blog',

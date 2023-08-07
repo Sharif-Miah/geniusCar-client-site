@@ -74,7 +74,9 @@ const ServiceDetails = () => {
           </div>
         </div>
 
-        <h1 className=" text-center lg:text-left text-4xl my-10 font-bold">Unique Car Engine Service</h1>
+        <h1 className=" text-center lg:text-left text-4xl my-10 font-bold">
+          Unique Car Engine Service
+        </h1>
         <div className="card lg:card-side">
           <div className="w-full lg:w-3/4 sm:mx-auto">
             <p className="text-zinc-500 tracking-wider mx-6 leading-8 ">
@@ -268,17 +270,25 @@ const ServiceDetails = () => {
                 Need Help? We Are Here To Help You
               </h4>
               <div className="mx-auto bg-white px-7 pt-6 pb-12 rounded-lg ">
-                <h4 className="font-bold text-xl text-black"><span className="text-red-500">Car Doctor</span> Special</h4>
-                <p className="text-zinc-500 font-bold mt-1 ml-5">Save up to <span className="text-red-500">60% off</span></p>
+                <h4 className="font-bold text-xl text-black">
+                  <span className="text-red-500">Car Doctor</span> Special
+                </h4>
+                <p className="text-zinc-500 font-bold mt-1 ml-5">
+                  Save up to <span className="text-red-500">60% off</span>
+                </p>
               </div>
               <div className="mx-auto mt-[-35px]">
-              <button className="btn bg-red-500 text-white border border-red-500 hover:border-red-500 hover:bg-red-500">Get A Quote</button>
+                <button className="btn bg-red-500 text-white border border-red-500 hover:border-red-500 hover:bg-red-500">
+                  Get A Quote
+                </button>
               </div>
               <h1 className="font-bold mt-5 text-3xl">Price: ${price}</h1>
               <div>
-              <Link to={`/chackout/${_id}`}>
-              <button className="btn bg-red-500 w-full text-white border border-red-500 hover:border-red-500 hover:bg-red-500 mt-3">Proceed Checkout</button>
-              </Link>
+                <Link to={`/chackout/${_id}`}>
+                  <button className="btn bg-red-500 w-full text-white border border-red-500 hover:border-red-500 hover:bg-red-500 mt-3">
+                    Proceed Checkout
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
