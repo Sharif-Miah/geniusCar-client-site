@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import img from "../../../assets/images/banner/banner1.jpg";
 import BookingTable from "./BookingTable";
@@ -7,14 +7,54 @@ const Booking = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
 
+  const url = `http://localhost:5000/booking?email=${user?.email}`
   useEffect(() => {
-    fetch(`http://localhost:5000/booking?email=${user?.email}`)
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
         console.log(data);
       });
-  }, []);
+  }, [url]);
+
+  const handleDeleteBooking = id => {
+    const proced = confirm('Are you sure want to Delete Booking!')
+    if(proced){
+      fetch(`http://localhost:5000/booking/${id}`, {
+        method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.deletedCount > 0){
+          const reamingBooking = bookings.filter(booking => booking._id !== id)
+          setBookings(reamingBooking)
+        }
+        
+      })
+    }
+  }
+
+  const handleUpdateStatus = id => {
+    fetch(`http://localhost:5000/booking/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({status: 'Confirm'})
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.modifiedCount > 0){
+        const updateRamming = bookings.filter(booking => booking._id !== id)
+        updateRamming.status = 'Confirm'
+        const updated = bookings.find(booking => booking._id === id)
+        const newBookings = [updated, ...updateRamming]
+        setBookings(newBookings)
+      }
+    })
+    
+    }
 
   return (
     <div>
@@ -53,7 +93,11 @@ const Booking = () => {
           </thead>
           <tbody>
             {
-                bookings.map(booking => <BookingTable key={booking._id} booking={booking}/>)
+                bookings.map(booking => <BookingTable key={booking._id}
+                   booking={booking} 
+                   handleDeleteBooking={handleDeleteBooking}
+                   handleUpdateStatus={handleUpdateStatus}
+                />)
             }
           </tbody>
         </table>

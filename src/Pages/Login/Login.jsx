@@ -2,7 +2,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { TfiLinkedin } from "react-icons/tfi";
 import registerImg from "../../assets/images/login/login.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
@@ -14,6 +14,8 @@ const provider = new GoogleAuthProvider()
 const Login = () => {
 
 const {signIn, googleProvider} = useContext(AuthContext)
+const navigate = useNavigate();
+const from = location.state?.from?.pathname || '/';
 
 const toastify = () => toast.success("Successfully Login")
 
@@ -29,6 +31,7 @@ const toastify = () => toast.success("Successfully Login")
       const user = result.user;
       form.reset()
       console.log(user);
+      navigate(from, { replace: true })
 
     })
     .catch(error => console.error(error))

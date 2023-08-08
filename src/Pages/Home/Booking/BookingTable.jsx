@@ -1,11 +1,11 @@
 import React from "react";
 
-const BookingTable = ({ booking }) => {
-  const { img, service, date, custerName, phone, email, price } = booking;
+const BookingTable = ({ booking, handleDeleteBooking, handleUpdateStatus }) => {
+  const {_id, img, service, date, custerName, phone, email, price, status } = booking;
   return (
     <tr>
       <th>
-        <button className="btn btn-xs btn-circle">
+        <button onClick={() => handleDeleteBooking(_id)} className="btn btn-xs btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -42,7 +42,8 @@ const BookingTable = ({ booking }) => {
       <td>{email}</td>
       <td>{price}</td>
       <th>
-        <button className="btn  bg-red-500 text-white rounded-xl hover:bg-red-500">Pending</button>
+        {status === 'Comfirm' ? <span className="text-primary">confirm</span> :
+          <button onClick={() => handleUpdateStatus(_id)} className="btn  bg-red-500 text-white rounded-xl hover:bg-red-500">Pending</button>}
       </th>
     </tr>
   );
