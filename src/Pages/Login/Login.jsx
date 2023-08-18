@@ -8,50 +8,64 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider } from "firebase/auth";
 
-
-const provider = new GoogleAuthProvider()
+const provider = new GoogleAuthProvider();
 
 const Login = () => {
+  const { signIn, googleProvider } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
-const {signIn, googleProvider} = useContext(AuthContext)
-const navigate = useNavigate();
-const from = location.state?.from?.pathname || '/';
+  // const toastify = () => toast.success("Successfully Login")
 
-const toastify = () => toast.success("Successfully Login")
-
-  const handleInLogin = event => {
+  const handleInLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password);
+    console.log(email, password);
 
     signIn(email, password)
-    .then(result => {
-      const user = result.user;
-      form.reset()
-      console.log(user);
-      navigate(from, { replace: true })
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        const loggedUser = {
+          email: user.email,
+        };
+        console.log(loggedUser);
 
-    })
-    .catch(error => console.error(error))
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loggedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("jwt response", data);
+            // waring: local storage is not best. (second best)
+            localStorage.setItem("car-access-token", data.token);
+            form.reset();
+            navigate(from, { replace: true });
+          });
+      })
+      .catch((error) => console.error(error));
+  };
 
-  }
-
-  // Google Login 
+  // Google Login
 
   const handleWithGoogle = () => {
     googleProvider(provider)
-    .then(result => {
-      const user = result.user
-      console.log(user);
-      console.log("Successfully Register");
-    })
-    .catch(error => console.error(error))
-  }
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        console.log("Successfully Register");
+      })
+      .catch((error) => console.error(error));
+  };
 
-    return (
-        <div className="my-24">
+  return (
+    <div className="my-24">
       <div className="card lg:card-side bg-base-100">
         <figure className="w-1/2 mx-auto">
           <img src={registerImg} alt="Album" className="w-96" />
@@ -90,17 +104,28 @@ const toastify = () => toast.success("Successfully Login")
             <p className=" text-sm mt-3">OR login with you</p>
           </div>
           <div className="lg:flex ml-16 lg:ml-24  mt-5">
-            <FcGoogle onClick={handleWithGoogle} className="text-2xl text-sky-900 cursor-pointer" />
+            <FcGoogle
+              onClick={handleWithGoogle}
+              className="text-2xl text-sky-900 cursor-pointer"
+            />
             <FaFacebookF className="text-2xl my-3 lg:my-0 lg:mx-9 text-sky-900 cursor-pointer" />
             <TfiLinkedin className="text-2xl text-indigo-700 cursor-pointer" />
           </div>
           <div>
-            <p className="ml-6 lg:ml-12 mt-0 lg:mt-5 cursor-pointer">Have an account? <Link to='/register' className="text-red-500 ml-6 lg:ml-0 font-bold">Register</Link></p>
+            <p className="ml-6 lg:ml-12 mt-0 lg:mt-5 cursor-pointer">
+              Have an account?{" "}
+              <Link
+                to="/register"
+                className="text-red-500 ml-6 lg:ml-0 font-bold"
+              >
+                Register
+              </Link>
+            </p>
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Login;

@@ -38,12 +38,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/chackout/:id',
-                element: <CheckOut/>,
+                element: <PrivetRoutes><CheckOut/></PrivetRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/chackout/${params.id}`)
             },
             {
                 path: '/booking',
-                element: <Booking/>,
+                element: <PrivetRoutes><Booking/></PrivetRoutes>,
             },
             {
                 path: '/blog',
