@@ -9,7 +9,12 @@ const Booking = () => {
 
   const url = `http://localhost:5000/booking?email=${user?.email}`
   useEffect(() => {
-    fetch(url)
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('car-access-token')}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
@@ -35,26 +40,7 @@ const Booking = () => {
   }
 
   const handleUpdateStatus = id => {
-    // fetch(`http://localhost:5000/booking/${id}`, {
-    //   method: 'PATCH',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify({status: 'Confirm'})
-    // })
-    // .then(res => res.json())
-    // .then(data => {
-    //   console.log(data);
-    //   if(data.modifiedCount > 0){
-    //     // const updateRamming = bookings.filter(booking => booking._id !== id)
-    //     // updateRamming.status = 'Confirm'
-    //     // const updated = bookings.find(booking => booking._id === id)
-    //     // const newBookings = [updated, ...updateRamming]
-    //     // setBookings(newBookings)
-    //   }
-    // })
     
-
     fetch(`http://localhost:5000/booking/${id}`, {
             method: 'PATCH',
             headers: {
