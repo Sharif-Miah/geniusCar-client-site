@@ -9,7 +9,7 @@ const ServicesItem = ({service}) => {
         <figure>
           <img
             src={img}
-            alt="Shoes"
+            alt="img"
           />
         </figure>
         <div className="card-body">

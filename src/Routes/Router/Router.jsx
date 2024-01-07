@@ -30,7 +30,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/service',
-                element: <Service/>
+                element: <Service/>,
+                // loader: ({params}) => fetch(`https://genius-car-farhan-sharif.vercel.app/servicedetails/${params.id}`)
             },
             {
                 path: '/servicedetails/:id',

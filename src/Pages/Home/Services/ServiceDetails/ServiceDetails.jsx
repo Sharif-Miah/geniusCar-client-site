@@ -7,7 +7,7 @@ import { AiOutlinePlayCircle } from "react-icons/ai";
 import "./ServiceDetails.css";
 
 const ServiceDetails = () => {
-  const { _id, title, img, price } = useLoaderData();
+  const { _id, img, price } = useLoaderData();
   return (
     <div>
       <div className="my-10">

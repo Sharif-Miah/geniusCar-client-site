@@ -1,10 +1,243 @@
-import React from 'react';
+import React from "react";
+import logo from "../../assets/logo.svg";
+import { Link, useLoaderData } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
+import { MdContactPage } from "react-icons/md";
+import { AiOutlinePlayCircle } from "react-icons/ai";
+import "../../Pages/Home/Services/ServiceDetails/ServiceDetails.css";
 
 const Blog = () => {
     return (
         <div>
-            <h1>This is Blog Pages</h1>
+      <div className="my-10">
+        <div className=" relative w-full ">
+          <div className="img-gradient">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAjEAS2zJ_0rhf7IZP0TAUwpPSZjfU_bXK1w&usqp=CAU"
+              className="w-full h-80 rounded-2xl"
+              alt=""
+            />
+          </div>
+          <div>
+            <div className="absolute flex justify-end transform -translate-y-1/2 left-5 top-1/4 ">
+              <h1 className=" text-lg lg:text-4xl mt-48 ml-20 text-white font-bold">
+                Service Blog
+              </h1>
+            </div>
+            <div className=" absolute flex justify-end  transform -translate-y-1/2 left-1/2 bottom-0">
+              <p className="text-white bg-red-600 px-8 py-1 mt-[-34px] text-sm clip-path">
+                Home/Blog
+              </p>
+            </div>
+          </div>
         </div>
+
+        <div className="mt-10 ">
+          <div className="card lg:card-side bg-base-100 ">
+            <figure className="w-full lg:w-3/4 flex sm:mx-auto lg:flex-collumn">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAjEAS2zJ_0rhf7IZP0TAUwpPSZjfU_bXK1w&usqp=CAU"
+                alt="Album"
+                className="h-96"
+              />
+            </figure>
+            
+          </div>
+        </div>
+
+        <h1 className=" text-end lg:text-left text-4xl my-10 font-bold">
+           Service Blog
+        </h1>
+        <div className="card lg:card-side">
+          <div className="w-full lg:w-3/4 sm:mx-auto">
+            <p className="text-zinc-500 tracking-wider  leading-8 ">
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered <br /> alteration in some form, by
+              injected humour, or randomised words which don't look even <br />
+              slightly believable. If you are going to use a passage of Lorem
+              Ipsum, you need to be sure there <br /> isn't anything
+              embarrassing hidden in the middle of text.
+            </p>
+            <p className="text-zinc-500 tracking-wider mx-6 leading-8 mt-5">
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered <br /> alteration in some form, by
+              injected humour, or randomised words which don't look even
+              slightly believable. If you
+            </p>
+          </div>
+          
+        </div>
+
+        <div className="mt-10 ">
+          <div className="card lg:card-side bg-base-100">
+            <div className="w-full lg:w-3/4 flex mx-auto lg:flex-collumn">
+              <div className="">
+                <div className="grid grid-cols-1 lg:grid-cols-2 my-10">
+                  <div className="card w-96 border-t-2 border-red-500 bg-base-100 my-10 mr-28">
+                    <div className="card-body">
+                      <h2 className="card-title px-5">Instant Car Services</h2>
+                      <p className="text-zinc-400 px-5 text-md">
+                        It uses a dictionary of over 200 Latin words, combined
+                        with a model sentence structures.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="card w-96 border-t-2 border-red-500 bg-base-100 my-10 mr-28">
+                    <div className="card-body">
+                      <h2 className="card-title px-5">Instant Car Services</h2>
+                      <p className="text-zinc-400 px-5 text-md">
+                        It uses a dictionary of over 200 Latin words, combined
+                        with a model sentence structures.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="card w-96 border-t-2 border-red-500 bg-base-100 my-10 mr-28">
+                    <div className="card-body">
+                      <h2 className="card-title px-5">Instant Car Services</h2>
+                      <p className="text-zinc-400 px-5 text-md">
+                        It uses a dictionary of over 200 Latin words, combined
+                        with a model sentence structures.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="card w-96 border-t-2 border-red-500 bg-base-100 my-10 mr-28">
+                    <div className="card-body">
+                      <h2 className="card-title px-5">Instant Car Services</h2>
+                      <p className="text-zinc-400 px-5 text-md">
+                        It uses a dictionary of over 200 Latin words, combined
+                        with a model sentence structures.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-zinc-500 tracking-wider mx-6 leading-8">
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which don't
+                    look even slightly believable. If you are going to use a
+                    passage of Lorem Ipsum, you need to be sure there isn't
+                    anything embarrassing hidden in the middle of text.
+                  </p>
+                  <p className="text-zinc-500 tracking-wider mx-6 leading-8 mt-5">
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered <br /> alteration
+                    in some form, by injected humour, or randomised words which
+                    don't look even slightly believable. If you
+                  </p>
+                </div>
+
+                <div>
+                  <h1 className="text-4xl text-center lg:text-left my-10 font-bold">
+                    3 Simple Steps to Process
+                  </h1>
+                  <p className="text-zinc-500 tracking-wider mx-6 leading-8">
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which don't
+                    look even slightly believable. If you are going to use a
+                    passage of Lorem Ipsum, you need to be sure there isn't
+                    anything embarrassing hidden in the middle of text. There
+                    are many variations of passages of Lorem Ipsum available,
+                    but the majority have suffered
+                  </p>
+
+                  <div className="my-20">
+                    <div className="grid grid-cols-1 lg:grid-cols-3">
+                      <div className="card w-96 bg-base-100">
+                        <div className="mx-auto">
+                          <span className="bg-red-500 text-white p-4 rounded-full font-bold">
+                            01
+                          </span>
+                        </div>
+                        <div className="card-body items-center text-center">
+                          <h2 className="card-title font-bold">Step One!</h2>
+                          <p>
+                            It uses a dictionary <br /> of over 200.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="card w-96 bg-base-100">
+                        <div className="mx-auto">
+                          <span className="bg-red-500 text-white p-4 rounded-full font-bold">
+                            02
+                          </span>
+                        </div>
+                        <div className="card-body items-center text-center">
+                          <h2 className="card-title font-bold">Step Two!</h2>
+                          <p>
+                            It uses a dictionary <br /> of over 200.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="card w-96 bg-base-100">
+                        <div className="mx-auto">
+                          <span className="bg-red-500 text-white p-4 rounded-full font-bold">
+                            03
+                          </span>
+                        </div>
+                        <div className="card-body items-center text-center">
+                          <h2 className="card-title font-bold">Step Three!</h2>
+                          <p>
+                            It uses a dictionary <br /> of over 200.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mb-10 lg:mb-0 relative ">
+                    <div className="">
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAjEAS2zJ_0rhf7IZP0TAUwpPSZjfU_bXK1w&usqp=CAU"
+                        className="w-full h-96 rounded-2xl"
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <div className="absolute flex justify-end transform -translate-y-1/2 left-1/3 top-1/3 ">
+                        <h1 className=" text-lg lg:text-4xl mt-48 ml-20 text-white font-bold">
+                          <AiOutlinePlayCircle className="text-red-500 text-6xl cursor-pointer" />
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card-body w-full  lg:w-1/4 sm:mx-auto bg-black text-white h-[500px] rounded-lg">
+              <div className=" mx-auto">
+                <img src={logo} width={75} alt="" className="text-white" />
+              </div>
+              <h4 className="text-center font-bold text-xl my-3">
+                Need Help? We Are Here To Help You
+              </h4>
+              <div className="mx-auto bg-white px-7 pt-6 pb-12 rounded-lg ">
+                <h4 className="font-bold text-xl text-black">
+                  <span className="text-red-500">Car Doctor</span> Special
+                </h4>
+                <p className="text-zinc-500 font-bold mt-1 ml-5">
+                  Save up to <span className="text-red-500">60% off</span>
+                </p>
+              </div>
+              <div className="mx-auto mt-[-35px]">
+                <button className="btn bg-red-500 text-white border border-red-500 hover:border-red-500 hover:bg-red-500">
+                  Get A Quote
+                </button>
+              </div>
+              <h1 className="font-bold mt-5 text-3xl">Price: $120</h1>
+              <div>
+                <Link>
+                  <button className="btn bg-red-500 w-full text-white border border-red-500 hover:border-red-500 hover:bg-red-500 mt-3">
+                    Proceed Checkout
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     );
 };
 
