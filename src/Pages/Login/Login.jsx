@@ -33,7 +33,7 @@ const Login = () => {
         };
         console.log(loggedUser);
 
-        fetch("https://y-psi-gilt.vercel.app/jwt", {
+        fetch("https://genius-car-farhan-sharif.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

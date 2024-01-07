@@ -30,7 +30,7 @@ const CheckOut = () => {
       service_id: _id
     }
 
-    fetch('https://y-psi-gilt.vercel.app/booking', {
+    fetch('https://genius-car-farhan-sharif.vercel.app/booking', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

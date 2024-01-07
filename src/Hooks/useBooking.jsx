@@ -7,8 +7,9 @@ const useBooking = () => {
   const { data: booking = [], refetch } = useQuery({
     queryKey: ["booking", user?.email],
     queryFn: async () => {
-      const res = await fetch("https://y-psi-gilt.vercel.app/booking");
-      return res.json();
+      const res = await fetch("https://genius-car-farhan-sharif.vercel.app/booking");
+      const data = await res.json();
+      return data;
     },
   });
 
