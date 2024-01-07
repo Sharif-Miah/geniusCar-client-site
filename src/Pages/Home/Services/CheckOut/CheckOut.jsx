@@ -1,17 +1,12 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
 
 const CheckOut = () => {
   const {_id, img, price, title } = useLoaderData();
   const { user } = useContext(AuthContext);
-
-  const switAlart = Swal.fire(
-    'Good job!',
-    'You Successfully Booking Orders!',
-    'success'
-  )
+  const navigate = useNavigate()
 
   const bookingHanndle = event => {
     event.preventDefault();
@@ -35,7 +30,7 @@ const CheckOut = () => {
       service_id: _id
     }
 
-    fetch('http://localhost:5000/booking', {
+    fetch('https://y-psi-gilt.vercel.app/booking', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -45,8 +40,16 @@ const CheckOut = () => {
     })
     .then(res => res.json())
     .then(data => {
+      console.log(data)
       if(data.acknowledged){
-        switAlart
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your Order is Done",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        navigate('/')
       }
     })
 

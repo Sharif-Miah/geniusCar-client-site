@@ -14,6 +14,7 @@ import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 
 
 
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -34,12 +35,12 @@ const router = createBrowserRouter([
             {
                 path: '/servicedetails/:id',
                 element: <ServiceDetails/>,
-                loader: ({params}) => fetch(`http://localhost:5000/servicedetails/${params.id}`)
+                loader: ({params}) => fetch(`https://y-psi-gilt.vercel.app/servicedetails/${params.id}`)
             },
             {
                 path: '/chackout/:id',
                 element: <PrivetRoutes><CheckOut/></PrivetRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/chackout/${params.id}`)
+                loader: ({params}) => fetch(`https://y-psi-gilt.vercel.app/chackout/${params.id}`)
             },
             {
                 path: '/booking',

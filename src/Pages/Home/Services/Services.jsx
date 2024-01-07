@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ServicesItem from "./ServicesItem/ServicesItem";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://y-psi-gilt.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -27,9 +28,11 @@ const Services = () => {
         ))}
       </div>
       <div className="text-center">
+        <Link to='/service'>
         <button className="btn btn-outline hover:bg-red-500 hover:text-white text-red-500 hover:border-red-500 border-red-500">
           More Services
         </button>
+        </Link>
       </div>
     </div>
   );

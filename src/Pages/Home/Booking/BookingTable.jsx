@@ -1,31 +1,12 @@
 import React from "react";
+import { AiTwotoneDelete } from "react-icons/ai";
 
-const BookingTable = ({ booking, handleDeleteBooking, handleUpdateStatus }) => {
+const BookingTable = ({ booking,index, handleDeleteBooking, handleUpdateStatus }) => {
   const { _id, img, service, date, custerName, phone, email, price, status } =
     booking;
   return (
     <tr>
-      <th>
-        <button
-          onClick={() => handleDeleteBooking(_id)}
-          className="btn btn-xs btn-circle"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </th>
+      <td>{index+1}</td>
       <td>
         <div className="flex items-center space-x-3">
           <div className="avatar">
@@ -51,12 +32,20 @@ const BookingTable = ({ booking, handleDeleteBooking, handleUpdateStatus }) => {
         ) : (
           <button
             onClick={() => handleUpdateStatus(_id)}
-            className="btn btn-ghost btn-xs"
+            className="btn btn-outline btn-primary btn-xs"
           >
             Please Confirm
           </button>
         )}
       </th>
+      <td>
+        <button
+          onClick={() => handleDeleteBooking(_id)}
+          className="btn text-2xl text-black btn-square bg-red-500 hover:bg-red-500"
+        >
+          <AiTwotoneDelete />
+        </button>
+      </td>
     </tr>
   );
 };

@@ -33,7 +33,7 @@ const Login = () => {
         };
         console.log(loggedUser);
 
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://y-psi-gilt.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
